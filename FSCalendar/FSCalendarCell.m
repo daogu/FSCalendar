@@ -108,9 +108,10 @@
         CGFloat subtitleHeight = self.calendar.calculator.subtitleHeight;
         
         CGFloat height = titleHeight + subtitleHeight;
+        CGFloat height = titleHeight + subtitleHeight;
         _titleLabel.frame = CGRectMake(
                                        self.preferredTitleOffset.x,
-                                       (self.contentView.fs_height*5.0/6.0-height)*0.5+self.preferredTitleOffset.y,
+                                       self.preferredTitleOffset.y + 9,
                                        self.contentView.fs_width,
                                        titleHeight
                                        );
@@ -136,10 +137,10 @@
     CGFloat titleHeight = self.bounds.size.height*5.0/6.0;
     CGFloat diameter = MIN(self.bounds.size.height*5.0/6.0,self.bounds.size.width);
     diameter = diameter > FSCalendarStandardCellDiameter ? (diameter - (diameter-FSCalendarStandardCellDiameter)*0.5) : diameter;
-    _shapeLayer.frame = CGRectMake((self.bounds.size.width-diameter)/2,
-                                   (titleHeight-diameter)/2,
-                                   diameter,
-                                   diameter);
+    _shapeLayer.frame = CGRectMake(self.bounds.origin.x + diameter*1/3,
+                                   self.bounds.origin.y + diameter*1/6,
+                                   diameter*2/3,
+                                   diameter*2/3);
     
     CGPathRef path = [UIBezierPath bezierPathWithRoundedRect:_shapeLayer.bounds
                                                 cornerRadius:CGRectGetWidth(_shapeLayer.bounds)*0.5*self.borderRadius].CGPath;
