@@ -108,7 +108,6 @@
         CGFloat subtitleHeight = self.calendar.calculator.subtitleHeight;
         
         CGFloat height = titleHeight + subtitleHeight;
-        CGFloat height = titleHeight + subtitleHeight;
         _titleLabel.frame = CGRectMake(
                                        self.preferredTitleOffset.x,
                                        self.preferredTitleOffset.y + 9,
